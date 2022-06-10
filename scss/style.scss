@@ -1,0 +1,487 @@
+//   ------------------------------------
+//   VARIABLES
+//   ------------------------------------
+$color-primary:#e82e39;
+$color-secondary: #3a3a3a;
+$color-white: #f4f4f4;
+$color-light: #999;
+
+$font-family: proxima-nova,sans-serif;
+$font-regular: 400;
+$font-bold: 700;
+
+$spacer: 100px 0 150px 0;
+//   ------------------------------------
+//   VARIABLES
+//   ------------------------------------
+
+
+//   ------------------------------------
+//   GENERAL - start
+//   ------------------------------------
+html { 
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+*, *:after, *:before { box-sizing: inherit; }
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    font: {
+        family: $font-family;
+        size: 16px;
+        weight: $font-regular;
+    }
+    line-height: 1.5;
+    color: $color-secondary;
+    background-color: $color-white;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+.grid {
+
+    @media screen and (min-width: 830px) {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 130px 50px;
+        padding: 0 0 100px 0;
+    }
+
+    @media screen and (min-width: 990px) {
+        grid-template-columns: 380px 1fr;
+        gap: 180px 100px;
+        padding: 0 0 100px 0;
+    }
+}
+
+.self-end {
+    align-self: end;
+}
+
+.text-link {
+    color: $color-secondary;
+    text-decoration: underline;
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+//   ------------------------------------
+//   GENERAL - end
+//   ------------------------------------
+
+
+//   ------------------------------------
+//   HEADER - start
+//   ------------------------------------
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle closest-side, rgba(216, 216, 216, 0.9) 10%, $color-white 100%),url(../images/bg.gif);
+    background-size: 100% 100%, 14em 7em;
+
+    &__title {
+        margin: 0;
+        color: $color-secondary;
+        text-align: center;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        font-size: 40px;
+
+        @media screen and (min-width: 430px) {
+            font-size: 50px; 
+         }
+
+        @media screen and (min-width: 830px) {
+           font-size: 100px; 
+        }
+
+        &--red-peppers {
+            text-transform: uppercase;
+            background: $color-primary;
+            background-clip: text;
+            -webkit-text-stroke-width: 0;
+        }
+    }
+
+    &__text {
+        text-align: center;
+        font-weight: $font-regular;
+        font-size: 20px;
+
+        @media screen and (min-width: 430px) {
+            font-size: 24px; 
+         }
+
+        &::after {
+            content: "";
+            background: url(../images/arrow-down.svg) no-repeat;
+            display: block;
+            height: 65px;
+            width: 25px;
+            margin: 100px auto 0 auto;
+            animation: move-down 1s infinite alternate;
+
+            @keyframes move-down {
+                from {transform: translateY(0);}
+                to   {transform: translateY(20px);}
+            }
+        }
+    }
+}
+//   ------------------------------------
+//   HEADER - end
+//   ------------------------------------
+
+
+//   ------------------------------------
+//   MAIN - start
+//   ------------------------------------
+
+//   about me - start
+.about {
+
+    &__img {
+        display: block;
+        width: 100%;
+        padding: 0 60px 0 60px;
+        background: linear-gradient(to bottom, $color-white 50%, rgba(246, 246, 246, 0.9) 50%), url(../images/bg.gif);
+        background-size: 100% 100%, 14em 7em;
+
+        @media screen and (min-width: 480px) {
+            width: 220px;
+            padding: 0 30px 0 30px;
+        }
+
+        @media screen and (min-width: 830px) {
+            width: 100%;
+            padding: 0 80px 0 65px;
+        }
+    }
+
+    &__text {
+        padding-top: 40px;
+    }
+
+    &__text .red-peppers {
+        color: $color-primary;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+
+    &__text--italic {
+        font-style: italic;
+        margin-bottom: -10px;
+        color: $color-primary;
+
+        @media screen and (min-width: 990px) {
+            font-size: 25px;
+        }
+    }
+}
+//   about me - end
+
+//   content - start
+.content {
+    padding: 90px 0 0 30px;
+
+    @media screen and (min-width: 830px) {
+        padding-top: 0;
+    }
+
+    &__title {
+        margin: 0 0 20px 0;
+        font-size: 50px;
+        text-transform: uppercase;
+        position: relative;
+
+        &--small {
+            font-size: 18px;
+            letter-spacing: 3px;
+
+            &::before {
+                content: "{";
+                color: $color-primary;
+                font-family: $font-family;
+                font-size: 60px;
+                position: absolute;
+                margin-left: -35px;
+            }
+        }
+
+       &--footer::after  {
+            content: " :)";
+            color: $color-primary;
+       }
+    }
+
+    &__text--padding-top {
+        padding: 30px 0 45px 30px;
+
+        @media screen and (min-width: 830px) {
+            padding-top: 68px;
+        }
+    }
+}
+//   content - end
+
+//   list - start
+.list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding-top: 20px;
+
+    @media screen and (min-width: 830px) {
+       padding-top: 65px; 
+    }
+
+    &__title {
+        font-size: 20px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 15px 0 15px  30px;
+
+        &::before {
+            content: "/";
+            color: $color-primary;
+            font-family: $font-family;
+            float: left;
+            margin-left: -30px;
+        }
+
+        &--grey {
+            color: $color-light;
+            letter-spacing: 0;
+            font-size: 16px;
+        }
+    }
+
+    &__text {
+        font-size: 16px;
+        letter-spacing: 0;
+        text-transform: none;
+        margin-top: 5px;
+    }
+
+    &__link {
+        color: $color-secondary;
+        text-transform: lowercase;
+        font-size: 16px;
+
+        @media screen and (min-width:430px) {
+            font-size: 20px;
+        }
+
+        &:hover {
+            color: $color-primary;
+            transition: .3s;
+        }
+    }
+}
+//   list - end
+
+//   tool - start
+.tool {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+
+    @media screen and (min-width: 630px) {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 25px;
+    }
+
+    @media screen and (min-width: 830px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 45px;
+        padding: 85px 0 0 30px;
+    }
+
+    @media screen and (min-width:1090px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 45px;
+        padding: 85px 0 0 30px;
+    }
+
+    &__img {
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to bottom, rgba(246, 246, 246, 0.9) 100%, rgba(246, 246, 246, 0.9) 0%), url(../images/bg.gif);
+        background-size: 100% 100%, 14em 7em;
+
+        @media screen and (min-width:990px) {
+            padding: 30px;
+        }
+
+        &--javascript {
+            animation: opacity-easeInBounce 2.5s infinite alternate;
+
+            @keyframes opacity-easeInBounce {
+                0% {opacity: 1;}
+                4% {opacity: 0.90;}
+                18% {opacity: 0.80;}
+                26% {opacity: 0.98;}
+                46% {opacity: 0.75;}
+                64% {opacity: 0.98;}
+                76% {opacity: 0.44;}
+                88% {opacity: 0.11;}
+                100% {opacity: 0.13;}
+            }
+        }
+    }
+}
+//   tool - end
+
+//   project - start
+.project {
+    
+    @media screen and (min-width: 830px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        padding-bottom: 100px;
+    }
+
+    &__box {
+        position: relative;
+        padding-bottom: 50px;
+
+        @media screen and (min-width: 830px) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        display: block;
+    }
+
+    &__description {
+        padding: 8px 24px 16px 24px;
+        background: linear-gradient(to bottom, rgba(246, 246, 246, 0.9) 100%, rgba(246, 246, 246, 0.9) 0%), url(../images/bg.gif);
+        background-size: 100% 100%, 14em 7em;
+        width: 100%;
+    }
+
+    &__breadcrumb {
+        margin-bottom: 0;
+        color: $color-light;
+        font-size: 13px;
+    }
+
+    &__title {
+        margin-top: 10px;
+        text-transform: uppercase;
+        font-size: 16px;
+        color:$color-secondary;
+    }
+
+    &__link {
+        color: $color-secondary;
+        font-size: 16px;
+
+        &:hover{
+            color: $color-primary;
+        }
+
+        &::after {
+            content: " ";
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+            margin-left: 15px;
+            margin-bottom: -3px;
+            background: url(../images/arrow-right.svg) no-repeat;
+        }
+
+        &:hover::after {
+            margin-left: 20px;
+            transition: .3s;
+            background: url(../images/arrow-right-hover.svg) no-repeat;
+        }
+    }
+}
+//   project - end
+
+//   ------------------------------------
+//   MAIN - end
+//   ------------------------------------
+
+
+//   ------------------------------------
+//   FOOTER - start
+//   ------------------------------------
+.footer {
+    position: relative;
+    
+   &__arrow {
+        position: absolute;
+        right: 0;
+        bottom: -78px;
+        padding: 25px 20px 20px 20px;
+        vertical-align: center;
+        background: linear-gradient(to bottom, rgba(246, 246, 246, 0.9) 100%, rgba(246, 246, 246, 0.9) 0%), url(../images/bg.gif);
+        background-size: 100% 100%, 14em 7em;
+
+        @media screen and (min-width:830px) {
+            bottom:25px;
+        }
+    } 
+    &__icon:hover {
+        animation: move-up .8s infinite alternate;
+
+        @keyframes move-up {
+            from {transform: translateY(0);}
+            to   {transform: translateY(-10px);}
+        }
+    }
+}
+//   ------------------------------------
+//   FOOTER - end
+//   ------------------------------------
+    
+
+/* SCROLLBAR - start */
+
+/* width */
+::-webkit-scrollbar {
+	width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: $color-light;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $color-secondary; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover{
+    background: $color-primary; 
+}
+/* SCROLLBAR - end */
+
+
+/* SELECT TEXT - start */
+::-moz-selection {
+    color: $color-white;
+    background: $color-primary;
+}
+
+::selection {
+    color: $color-white;
+    background: $color-primary;
+}
+/* SELECT TEXT - end */
